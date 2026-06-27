@@ -9,34 +9,34 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ""
 const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 const PAGE_STYLES =
-  "bg-slate-950 text-slate-50 min-h-screen font-sans flex items-center justify-center px-6 " +
-  "selection:bg-indigo-500 selection:text-white"
+  "bg-background text-foreground min-h-screen font-sans flex items-center justify-center px-6 " +
+  "selection:bg-primary selection:text-primary-foreground"
 
 const CARD_STYLES =
-  "w-full max-w-md bg-slate-900/60 border border-slate-800/80 rounded-2xl p-8 shadow-xl"
+  "w-full max-w-md bg-card/60 border border-border/80 rounded-2xl p-8 shadow-xl"
 
 const ICON_WRAPPER_STYLES =
-  "w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 mb-6"
+  "w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6"
 
-const TITLE_STYLES = "text-2xl font-bold text-white tracking-tight mb-1"
+const TITLE_STYLES = "text-2xl font-bold text-foreground tracking-tight mb-1"
 
-const SUBTITLE_STYLES = "text-sm text-slate-400 mb-6"
+const SUBTITLE_STYLES = "text-sm text-muted-foreground mb-6"
 
-const LABEL_STYLES = "text-xs font-medium text-slate-400 mb-1.5 block"
+const LABEL_STYLES = "text-xs font-medium text-muted-foreground mb-1.5 block"
 
 const INPUT_STYLES =
-  "w-full bg-slate-800/60 border border-slate-700/60 text-slate-50 placeholder-slate-500 " +
-  "rounded-xl px-4 py-3 text-sm outline-none focus:border-indigo-500/60 focus:ring-1 " +
-  "focus:ring-indigo-500/30 transition-colors"
+  "w-full bg-input/60 border border-input/60 text-foreground placeholder-muted-foreground " +
+  "rounded-xl px-4 py-3 text-sm outline-none focus:border-primary/60 focus:ring-1 " +
+  "focus:ring-ring/30 transition-colors"
 
 const BUTTON_STYLES =
-  "w-full bg-indigo-600 hover:bg-indigo-500 active:translate-y-0 disabled:opacity-50 " +
-  "disabled:cursor-not-allowed text-white font-semibold py-3 rounded-xl transition-all " +
-  "transform hover:-translate-y-0.5 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30"
+  "w-full bg-primary/90 hover:bg-primary active:translate-y-0 disabled:opacity-50 " +
+  "disabled:cursor-not-allowed text-primary-foreground font-semibold py-3 rounded-xl transition-all " +
+  "transform hover:-translate-y-0.5 shadow-lg shadow-primary/20 hover:shadow-primary/30"
 
-const SUCCESS_TITLE_STYLES = "text-xl font-bold text-white mt-4 mb-2"
+const SUCCESS_TITLE_STYLES = "text-xl font-bold text-foreground mt-4 mb-2"
 
-const SUCCESS_TEXT_STYLES = "text-slate-400 text-sm leading-relaxed"
+const SUCCESS_TEXT_STYLES = "text-muted-foreground text-sm leading-relaxed"
 
 export default function ResetPasswordPage() {
   const [newPassword, setNewPassword] = useState("")

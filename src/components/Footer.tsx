@@ -1,18 +1,18 @@
 import Link from "next/link";
 
 const FOOTER_STYLES =
-  "bg-slate-950 border-t border-slate-800/60 py-8 px-6 " +
-  "text-sm text-slate-500 selection:bg-indigo-500 selection:text-white";
+  "bg-background border-t border-border/60 py-8 px-6 " +
+  "text-sm text-muted-foreground selection:bg-primary selection:text-primary-foreground";
 
 const INNER_STYLES =
   "max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4";
 
-const COPYRIGHT_STYLES = "text-slate-600 text-xs";
+const COPYRIGHT_STYLES = "text-muted-foreground text-xs";
 
 const NAV_STYLES = "flex gap-6";
 
 const LINK_STYLES =
-  "text-slate-500 hover:text-slate-200 transition-colors duration-200";
+  "text-muted-foreground hover:text-foreground transition-colors duration-200";
 
 export default function Footer() {
   return (

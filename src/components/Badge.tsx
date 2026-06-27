@@ -6,7 +6,7 @@ interface BadgeProps {
 
 const BADGE_STYLES =
   "inline-flex items-center gap-2 px-3 py-1 text-xs font-medium " +
-  "text-indigo-400 bg-indigo-500/10 rounded-full border border-indigo-500/20 mb-6 animate-fade-in";
+  "text-primary bg-primary/10 rounded-full border border-primary/20 mb-6 animate-fade-in";
 
 const ICON_STYLES = "w-3 h-3";
 

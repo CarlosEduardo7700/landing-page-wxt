@@ -9,7 +9,7 @@ import MicroCopy from "@/components/MicroCopy";
 const CHROME_STORE_LINK = "https://chromewebstore.google.com/";
 
 const PAGE_WRAPPER_STYLES =
-  "bg-slate-950 text-slate-50 min-h-screen font-sans selection:bg-indigo-500 selection:text-white";
+  "bg-background text-foreground min-h-screen font-sans selection:bg-primary selection:text-primary-foreground";
 
 const HERO_SECTION_STYLES =
   "relative max-w-5xl mx-auto px-6 pt-24 pb-16 text-center flex flex-col items-center justify-center min-h-[70vh]";
@@ -17,14 +17,14 @@ const HERO_SECTION_STYLES =
 const CTA_WRAPPER_STYLES = "mt-10 flex flex-col sm:flex-row items-center gap-4";
 
 const BENEFITS_SECTION_STYLES =
-  "border-t border-slate-900 bg-slate-900/30 py-20 px-6";
+  "border-t border-card bg-card/30 py-20 px-6";
 
 const BENEFITS_INNER_STYLES = "max-w-5xl mx-auto";
 
 const BENEFITS_TITLE_WRAPPER_STYLES = "text-center mb-12";
 
 const BENEFITS_TITLE_STYLES =
-  "text-2xl sm:text-3xl font-bold text-white tracking-tight";
+  "text-2xl sm:text-3xl font-bold text-foreground tracking-tight";
 
 const BENEFITS_GRID_STYLES = "grid grid-cols-1 md:grid-cols-3 gap-8";
 
