@@ -102,7 +102,6 @@ export default function Home() {
             Comece a usar gratuitamente hoje mesmo e escale conforme a sua necessidade.
           </p>
 
-          {/* Grid de Planos */}
           <div className={PRICING_GRID_STYLES}>
 
             <PlanCard
