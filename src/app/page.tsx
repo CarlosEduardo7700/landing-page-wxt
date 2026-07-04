@@ -6,6 +6,9 @@ import Badge from "@/components/Badge";
 import Headline from "@/components/Headline";
 import Subheadline from "@/components/Subheadline";
 import MicroCopy from "@/components/MicroCopy";
+import DemoVideo from "@/components/DemoVideo";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import { testimonials } from "@/data/testimonials";
 
 const CHROME_STORE_LINK = "https://chromewebstore.google.com/";
 
@@ -23,6 +26,12 @@ const styles = {
   pricingTitle: "text-3xl font-bold tracking-tight text-foreground sm:text-4xl",
   pricingSubtitle: "mt-4 text-lg text-muted-foreground max-w-2xl mx-auto",
   pricingGrid: "mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto",
+  demoSection: "py-24 px-6 border-t border-border bg-background",
+  demoInner: "max-w-5xl mx-auto",
+  demoTitleWrapper: "text-center max-w-2xl mx-auto mb-16",
+  demoTitle: "text-3xl font-bold tracking-tight text-foreground sm:text-4xl",
+  demoSubtitle: "mt-4 text-lg text-muted-foreground",
+  demoContent: "flex flex-col gap-12",
 };
 
 export default function Home() {
@@ -71,6 +80,29 @@ export default function Home() {
               description="Reporte bugs ou sugira melhorias direto pela extensão. Criado para evoluir com o seu feedback."
             />
           </div>
+        </div>
+      </section>
+
+      <section className={styles.demoSection}>
+        <div className={styles.demoInner}>
+          
+          <div className={styles.demoTitleWrapper}>
+            <h2 className={styles.demoTitle}>
+              Veja a ferramenta em ação
+            </h2>
+            <p className={styles.demoSubtitle}>
+              Entenda como a extensão funciona em tempo real e o que os primeiros usuários estão achando.
+            </p>
+          </div>
+
+          <div className={styles.demoContent}>
+            
+            <DemoVideo />
+
+            <TestimonialsCarousel testimonials={testimonials} />
+
+          </div>
+
         </div>
       </section>
 
