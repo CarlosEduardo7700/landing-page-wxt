@@ -5,16 +5,24 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2026-06-24.dahlia', 
 });
 
+const ALLOWED_EXTENSION_ORIGIN = process.env.ALLOWED_EXTENSION_ORIGIN || 'chrome-extension://SEU_ID_DA_EXTENSAO_AQUI';
 
-function setCorsHeaders(res: NextResponse) {
-  res.headers.set('Access-Control-Allow-Origin', '*');
+function setCorsHeaders(res: NextResponse, requestHeaders: Headers) {
+  const origin = requestHeaders.get('origin');
+
+  if (origin === ALLOWED_EXTENSION_ORIGIN) {
+    res.headers.set('Access-Control-Allow-Origin', ALLOWED_EXTENSION_ORIGIN);
+  } else {
+    res.headers.set('Access-Control-Allow-Origin', 'null');
+  }
+
   res.headers.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   return res;
 }
 
-export async function OPTIONS() {
-  return setCorsHeaders(new NextResponse(null, { status: 204 }));
+export async function OPTIONS(request: Request) {
+  return setCorsHeaders(new NextResponse(null, { status: 204 }), request.headers);
 }
 
 export async function POST(request: Request) {
@@ -32,11 +40,11 @@ export async function POST(request: Request) {
     });
 
     const response = NextResponse.json({ url: session.url });
-    return setCorsHeaders(response);
+    return setCorsHeaders(response, request.headers);
   } catch (error: unknown) {
     console.error('Error creating Stripe Checkout Session:', error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     const response = NextResponse.json({ error: errorMessage }, { status: 500 });
-    return setCorsHeaders(response);
+    return setCorsHeaders(response, request.headers);
   }
 }
