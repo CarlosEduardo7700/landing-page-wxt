@@ -4,9 +4,14 @@ import { useState } from "react"
 import { createClient } from "@supabase/supabase-js"
 import { KeyRound, CheckCircle2 } from "lucide-react"
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ""
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ""
-const supabase = createClient(supabaseUrl, supabaseAnonKey)
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error("Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY");
+}
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const styles = {
   page: "bg-background text-foreground min-h-screen font-sans flex items-center justify-center px-6 selection:bg-primary selection:text-primary-foreground",
