@@ -21,8 +21,12 @@ export async function GET(request: Request) {
     if (session.payment_status === 'paid') {
       const userId = session.client_reference_id;
 
+      if (!userId) {
+        return NextResponse.json({ error: 'Missing client_reference_id' }, { status: 500 });
+      }
+
       const { error } = await supabaseAdmin
-        .from('profiles') 
+        .from('profiles')
         .update({ is_pro: true, stripe_customer_id: session.customer })
         .eq('id', userId);
 
