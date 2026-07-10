@@ -31,9 +31,9 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
 
   return (
     <div className={styles.carousel}>
-      {testimonials.map((item, index) => (
+      {testimonials.map((item) => (
         <div
-          key={index}
+          key={item.name}
           className={styles.card}
         >
           <div>
