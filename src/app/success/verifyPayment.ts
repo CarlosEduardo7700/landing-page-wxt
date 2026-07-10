@@ -7,6 +7,7 @@ export async function verifyPayment(
 ) {
   try {
     const response = await fetch(`/api/verify-checkout?session_id=${encodeURIComponent(sessionId)}`);
+    const data = await response.json();
 
     if (response.ok && data.verified) {
       setStatus('success');
