@@ -1,65 +1,157 @@
-import Image from "next/image";
+import { CheckCircle2, MessageSquare, Zap } from "lucide-react";
+import BenefitCard from "@/components/BenefitCard";
+import PlanCard from "@/components/PlanCard";
+import CtaButton from "@/components/CtaButton";
+import Badge from "@/components/Badge";
+import Headline from "@/components/Headline";
+import Subheadline from "@/components/Subheadline";
+import MicroCopy from "@/components/MicroCopy";
+import DemoVideo from "@/components/DemoVideo";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import { testimonials } from "@/data/testimonials";
+
+const CHROME_STORE_LINK = "https://chromewebstore.google.com/";
+
+const styles = {
+  pageWrapper: "bg-background text-foreground min-h-screen font-sans selection:bg-primary selection:text-primary-foreground",
+  heroSection: "relative max-w-5xl mx-auto px-6 pt-24 pb-16 text-center flex flex-col items-center justify-center min-h-[70vh]",
+  ctaWrapper: "mt-10 flex flex-col sm:flex-row items-center gap-4",
+  benefitsSection: "border-t border-card bg-card/30 py-20 px-6",
+  benefitsInner: "max-w-5xl mx-auto",
+  benefitsTitleWrapper: "text-center mb-12",
+  benefitsTitle: "text-2xl sm:text-3xl font-bold text-foreground tracking-tight",
+  benefitsGrid: "grid grid-cols-1 md:grid-cols-3 gap-8",
+  pricingSection: "py-24 px-6 border-t border-border bg-card/30",
+  pricingInner: "max-w-5xl mx-auto text-center",
+  pricingTitle: "text-3xl font-bold tracking-tight text-foreground sm:text-4xl",
+  pricingSubtitle: "mt-4 text-lg text-muted-foreground max-w-2xl mx-auto",
+  pricingGrid: "mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto",
+  demoSection: "py-24 px-6 border-t border-border bg-background",
+  demoInner: "max-w-5xl mx-auto",
+  demoTitleWrapper: "text-center max-w-2xl mx-auto mb-16",
+  demoTitle: "text-3xl font-bold tracking-tight text-foreground sm:text-4xl",
+  demoSubtitle: "mt-4 text-lg text-muted-foreground",
+  demoContent: "flex flex-col gap-12",
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className={styles.pageWrapper}>
+      
+      <section className={styles.heroSection}>
+        
+        <Badge label="Produtividade Máxima" />
+
+        <Headline text="Automatize tarefas repetitivas direto do seu navegador" />
+
+        <Subheadline text="Pare de perder horas copiando e colando dados manualmente. Nossa extensão faz o trabalho duro para você em um único clique, direto nas páginas que você já usa." />
+
+        <div className={styles.ctaWrapper}>
+          <CtaButton href={CHROME_STORE_LINK} />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+        <MicroCopy text="Setup em 30 segundos • Não requer cartão de crédito" />
+
+      </section>
+
+      <section className={styles.benefitsSection}>
+        <div className={styles.benefitsInner}>
+          
+          <div className={styles.benefitsTitleWrapper}>
+            <h2 className={styles.benefitsTitle}>
+              Por que usar nosso produto?
+            </h2>
+          </div>
+
+          <div className={styles.benefitsGrid}>
+            <BenefitCard
+              icon={CheckCircle2}
+              title="Economia de Tempo"
+              description="Transforme processos lentos de 15 minutos em cliques instantâneos que rodam em background."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <BenefitCard
+              icon={Zap}
+              title="Integração Nativa"
+              description="Funciona direto na página que você está navegando, sem precisar abrir outras abas ou softwares pesados."
+            />
+            <BenefitCard
+              icon={MessageSquare}
+              title="Suporte Integrado"
+              description="Reporte bugs ou sugira melhorias direto pela extensão. Criado para evoluir com o seu feedback."
+            />
+          </div>
         </div>
-      </main>
+      </section>
+
+      <section className={styles.demoSection}>
+        <div className={styles.demoInner}>
+          
+          <div className={styles.demoTitleWrapper}>
+            <h2 className={styles.demoTitle}>
+              Veja a ferramenta em ação
+            </h2>
+            <p className={styles.demoSubtitle}>
+              Entenda como a extensão funciona em tempo real e o que os primeiros usuários estão achando.
+            </p>
+          </div>
+
+          <div className={styles.demoContent}>
+            
+            <DemoVideo />
+
+            <TestimonialsCarousel testimonials={testimonials} />
+
+          </div>
+
+        </div>
+      </section>
+
+      <section className={styles.pricingSection}>
+        <div className={styles.pricingInner}>
+          
+          <h2 className={styles.pricingTitle}>
+            Preço simples, sem surpresas
+          </h2>
+          <p className={styles.pricingSubtitle}>
+            Comece a usar gratuitamente hoje mesmo e escale conforme a sua necessidade.
+          </p>
+
+          <div className={styles.pricingGrid}>
+
+            <PlanCard
+              name="Plano Free"
+              description="Perfeito para testar e validar o seu fluxo de trabalho."
+              price="R$ 0"
+              priceSuffix="/para sempre"
+              features={[
+                "Até X automações por dia",
+                "Acesso completo à extensão",
+                "Suporte por e-mail",
+              ]}
+              buttonLabel="Instalar Extensão"
+            />
+
+            <PlanCard
+              name="Plano Pro"
+              description="Para quem precisa de poder total e automação sem limites."
+              price="R$ 29"
+              priceSuffix="/mês"
+              features={[
+                "<strong class='text-foreground'>Automações ilimitadas</strong>",
+                "Filtros e configurações avançadas",
+                "Suporte prioritário via WhatsApp",
+                "Atualizações de recursos exclusivas",
+              ]}
+              buttonLabel="Entrar na Lista de Espera"
+              highlighted
+              badge="Em Breve"
+            />
+
+          </div>
+
+        </div>
+      </section>
+
     </div>
   );
 }
