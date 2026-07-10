@@ -29,6 +29,10 @@ export async function POST(request: Request) {
   try {
     const { userId, email } = await request.json();
 
+    if (typeof userId !== 'string' || typeof email !== 'string' || !userId || !email) {
+      const response = NextResponse.json({ error: 'Missing userId or email' }, { status: 400 });
+      return setCorsHeaders(response);
+    }
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'subscription',
