@@ -43,6 +43,11 @@ export async function POST(request: Request) {
       cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}`,
     });
 
+    if (!session.url) {
+      const response = NextResponse.json({ error: 'Stripe session URL not available' }, { status: 500 });
+      return setCorsHeaders(response, request.headers);
+    }
+
     const response = NextResponse.json({ url: session.url });
     return setCorsHeaders(response, request.headers);
   } catch (error: unknown) {
